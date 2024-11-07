@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Khmera's Profile</title>
+    <style>
+        /* Global styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        
+        /* Header styles */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: #fff;
+        }
+        header .logo {
+            font-weight: bold;
+            font-size: 1.5em;
+            color: #333;
+        }
+        .menu-btn {
+            font-size: 1.5em;
+            cursor: pointer;
+            display: none;
+        }
+        
+        /* Sidebar styles */
+        .sidebar {
+            position: fixed;
+            left: -250px;
+            top: 0;
+            width: 250px;
+            height: 100%;
+            background-color: #333;
+            color: #fff;
+            transition: 0.3s;
+            padding-top: 60px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .sidebar a {
+            text-decoration: none;
+            color: #fff;
+            padding: 10px 20px;
+            display: block;
+            font-size: 1.2em;
+        }
+        .sidebar a:hover {
+            background-color: #555;
+        }
+        .sidebar.open {
+            left: 0;
+        }
+        
+        /* Profile section styles */
+        .profile {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 60px;
+            background: linear-gradient(135deg, #fce3e6 40%, #fff 40%);
+            transition: margin-left 0.3s;
+        }
+        .profile-content {
+            max-width: 50%;
+        }
+        .profile-content h1 {
+            font-size: 2.5em;
+            color: #333;
+        }
+        .profile-content h1 span {
+            color: #e63946;
+            font-weight: bold;
+        }
+        .profile-content h2 {
+            color: #e63946;
+            margin-top: 10px;
+            font-size: 1.5em;
+        }
+        .profile-content p {
+            margin: 20px 0;
+            line-height: 1.6;
+        }
+        .profile-content button {
+            background-color: #e63946;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1em;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-bottom: 15px;
+        }
+        .profile-content button:hover {
+            background-color: #cc2b35;
+        }
+        .contact-email {
+            font-size: 0.9em;
+            color: #666;
+            margin-bottom: 15px;
+        }
+        .social-icons {
+            display: flex;
+            gap: 15px;
+        }
+        .social-icons a {
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+        .social-icons a:hover {
+            color: #e63946;
+        }
+        .profile-image img {
+            width: 300px;
+            height: auto;
+            border-radius: 15px;
+        }
+        
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            .menu-btn {
+                display: block;
+            }
+            .profile {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                padding: 40px;
+                margin-left: 0;
+            }
+            .profile-content {
+                max-width: 80%;
+            }
+            .profile-content h1 {
+                font-size: 2em;
+            }
+            .profile-content h2 {
+                font-size: 1.3em;
+            }
+            .profile-content p {
+                font-size: 0.9em;
+            }
+            .profile-image img {
+                width: 250px;
+                margin-top: 20px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .profile-content h1 {
+                font-size: 1.8em;
+            }
+            .profile-content h2 {
+                font-size: 1.1em;
+            }
+            .profile-content p {
+                font-size: 0.8em;
+            }
+            .profile-content button {
+                font-size: 0.9em;
+                padding: 8px 15px;
+            }
+            .social-icons a {
+                font-size: 1em;
+            }
+            .profile-image img {
+                width: 200px;
+                margin-top: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="logo">Khmera's Brand</div>
+        <span class="menu-btn" onclick="toggleSidebar()">&#9776;</span>
+    </header>
+
+    <!-- Sidebar Menu -->
+    <div class="sidebar" id="sidebar">
+        <a href="#work">Work</a>
+        <a href="#about">About Me</a>
+        <a href="#contact">Contact</a>
+        <a href="#" onclick="toggleSidebar()">Close</a>
+    </div>
+
+    <!-- Profile Section -->
+    <section class="profile">
+        <div class="profile-content">
+            <h1>Hello, I’m <span>Khmera</span></h1>
+            <h2>UI/UX Designer</h2>
+            <p>
+                I’m a passionate designer from Cambodia, specializing in creating unique and engaging user experiences. With a focus on simplicity and functionality, I help brands build digital presences that resonate with their audiences.
+            </p>
+            <button onclick="contactAlert()">Get in Touch!</button>
+            <p class="contact-email">Contact@khemraalearn.online</p>
+            <div class="social-icons">
+                <a href="https://facebook.com" target="_blank">Facebook</a>
+                <a href="https://twitter.com" target="_blank">Telegram</a>
+                <a href="https://dribbble.com" target="_blank">Instagram</a>
+                <a href="https://behance.net" target="_blank">TikTok</a>
+            </div>
+        </div>
+        <div class="profile-image">
+            <img src="images/jh.jpg" alt="Khmera's Profile Picture">
+        </div>
+    </section>
+
+    <script>
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            sidebar.classList.toggle('open');
+        }
+
+        function contactAlert() {
+            alert("Thank you for reaching out, Khmera will respond soon!");
+        }
+    </script>
+</body>
+</html>
